@@ -14,7 +14,7 @@ const Register = () => {
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="mr-7 w-full md:w-1/2">
-                        <img src="https://img.freepik.com/free-vector/cartoon-character-clown-dances-with-musical-melody-symbols_1308-60403.jpg?t=st=1684478570~exp=1684479170~hmac=9314f74092b3c6b4c25a713eba66b8064c152f614ba50368bc3bd30da214aa81" style={{ height: "900px" }} />
+                        <img src="https://img.freepik.com/free-photo/fun-clown-3d-illustration_183364-81001.jpg?size=626&ext=jpg&uid=R103521277&ga=GA1.2.419039387.1683279282" style={{ height: "900px" }} />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
