@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Iron Man Action Figure",
+        "sellerName": "Superhero Store",
+        "email": "contact@superherostore.com",
+        "category": "Marvel",
+        "price": 29.99,
+        "rating": 4.5,
+        "quantity": 10,
+        "details": "High-quality Iron Man action figure with light-up features.",
+        "photo": "https://images.unsplash.com/photo-1636840438199-9125cd03c3b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    },
+    {
+        "name": "Deadpool Replica",
+        "sellerName": "Heroic Collectibles",
+        "email": "info@heroiccollectibles.com",
+        "category": "Marvel",
+        "price": 99.99,
+        "rating": 4.8,
+        "quantity": 5,
+        "details": "Authentic Deadpool replica made of vibranium.",
+        "photo": "https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
+    },
+    {
+        "name": "Batman Utility Belt",
+        "sellerName": "Gotham Gadgets",
+        "email": "sales@gothamgadgets.com",
+        "category": "DC",
+        "price": 49.99,
+        "rating": 4.3,
+        "quantity": 8,
+        "details": "Functional utility belt inspired by Batman's iconic gear.",
+        "photo": "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+        "name": "Wonder Woman Statue",
+        "sellerName": "Amazonian Treasures",
+        "email": "info@amazoniantreasures.com",
+        "category": "DC",
+        "price": 79.99,
+        "rating": 4.7,
+        "quantity": 3,
+        "details": "Exquisite statue depicting Wonder Woman in her iconic pose.",
+        "photo": "https://m.media-amazon.com/images/I/81tRKSBdH+L.jpg"
+    },
+    {
+        "name": "Lightsaber Replica",
+        "sellerName": "Galactic Armory",
+        "email": "sales@galacticarmory.com",
+        "category": "Star Wars",
+        "price": 149.99,
+        "rating": 4.9,
+        "quantity": 2,
+        "details": "Realistic lightsaber replica with customizable color and sound effects.",
+        "photo": "https://images.unsplash.com/photo-1626981065755-d0939b5baa76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80"
+    },
+    {
+        "name": "Stormtrooper",
+        "sellerName": "Imperial Collectibles",
+        "email": "sales@imperialcollectibles.com",
+        "category": "Star Wars",
+        "price": 79.99,
+        "rating": 4.4,
+        "quantity": 7,
+        "details": "Authentic Stormtrooper replica with good materials.",
+        "photo": "https://unsplash.com/photos/ghziyUe5eI8"
+    }
+]
