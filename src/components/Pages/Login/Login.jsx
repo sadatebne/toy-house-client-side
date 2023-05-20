@@ -1,13 +1,50 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from '../../../providers/AuthProvider';
+
+import Swal from 'sweetalert2'
 
 const Login = () => {
+
+    const [err, setErr] = useState('')
+    const [success, setSuccess] = useState('')
 
     const [view, setView] = useState(false)
 
     const handleViewPass = () => {
         setView(!view)
+    }
+
+    const {login}=useContext(AuthContext)
+
+    const handleLogin = (event) => {
+        event.preventDefault()
+
+        const form = event.target
+        const email = form.email.value
+        const password = form.password.value
+
+        login(email, password)
+        .then(result=>{
+            console.log(result.user)
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Successfully Login',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(error=>{
+            console.log(error)
+            setErr(error.message)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "Provide Valid Email And Password"
+              })
+        })
     }
 
     return (
@@ -20,7 +57,7 @@ const Login = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <h1 className='text-4xl text-center my-5 font-bold'>LOGIN</h1>
-                            <form>
+                            <form onSubmit={handleLogin}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Email</span>
@@ -39,6 +76,9 @@ const Login = () => {
                                             <input onClick={handleViewPass} type="checkbox" className="checkbox checkbox-primary" />
                                         </label>
                                     </div>
+
+                                    <p className='text-red-700 my-3'>{err}</p>
+
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
@@ -48,12 +88,12 @@ const Login = () => {
                                     <p className='text-2xl font-semibold mb-3'>Sign in With </p>
                                     <span>
                                         <button className="btn btn-circle btn-outline">
-                                           <FaGoogle color='blue' fontSize="2em"/>
+                                            <FaGoogle color='blue' fontSize="2em" />
                                         </button>
                                     </span>
                                     <span className='ms-5'>
                                         <button className="btn btn-circle btn-outline">
-                                           <FaGithub color='green' fontSize="2em"/>
+                                            <FaGithub color='green' fontSize="2em" />
                                         </button>
                                     </span>
                                 </div>
