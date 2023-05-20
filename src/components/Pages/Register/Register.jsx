@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
 
@@ -7,6 +8,26 @@ const Register = () => {
 
     const handleViewPass = () => {
         setView(!view)
+    }
+     
+    const {signUp}=useContext(AuthContext)
+     
+    const handleRegister=(event)=>{
+      event.preventDefault()
+
+      const form=event.target
+      const email=form.email.value
+      const password =form.email.value
+       
+      signUp(email,password)
+      .then(result=>{
+        console.log(result.user)
+        alert('successful')
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+
     }
 
     return (
@@ -19,7 +40,7 @@ const Register = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <h1 className='text-4xl text-center my-5 font-bold'>Sign Up</h1>
-                            <form>
+                            <form onSubmit={handleRegister}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Name</span>
