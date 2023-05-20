@@ -34,6 +34,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              form.reset()
         })
         .catch(error=>{
             console.log(error)

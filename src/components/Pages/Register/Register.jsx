@@ -4,6 +4,11 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 import Swal from 'sweetalert2'
 
+import { getAuth, updateProfile } from "firebase/auth";
+import app from '../../../firebase/firebase.config';
+const auth = getAuth(app);
+
+
 const Register = () => {
 
     const [view, setView] = useState(false)
@@ -14,38 +19,58 @@ const Register = () => {
         setView(!view)
     }
 
-    const { signUp } = useContext(AuthContext)
+    const { signUp, logout } = useContext(AuthContext)
 
     const handleRegister = (event) => {
         event.preventDefault()
 
         const form = event.target
+        const name= form.name.value
         const email = form.email.value
         const password = form.password.value
         const confirm = form.confirm.value
+        const photo=form.photo.value
 
         if (password == confirm) {
 
             signUp(email, password)
                 .then(result => {
                     console.log(result.user)
+                    updateUser(result.user, name, photo)
                     Swal.fire({
                         icon: 'success',
                         title: 'Successfully Register',
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    form.reset()
                 })
                 .catch(error => {
                     console.log(error)
                     setErr(error.message)
                 })
+
+                
         }
         else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: "Password and Confirm Password Doesn't Match"
+            })
+        }
+
+        const updateUser=(user, name, photo)=>{
+            updateProfile(user,{
+                displayName : name,
+                photoURL: photo,
+            })
+            .then(() => {
+                console.log('user name updated')
+                logout()
+            })
+            .catch(error => {
+                setError(error.message);
             })
         }
 

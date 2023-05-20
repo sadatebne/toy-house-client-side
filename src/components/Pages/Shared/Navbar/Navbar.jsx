@@ -2,8 +2,18 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceLaughBeam, faHouse } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../../providers/AuthProvider';
 
 const Navbar = () => {
+    const {user, logout}=useContext(AuthContext)
+
+    const handleLogout =()=>{
+         logout()
+         .then(result=>{})
+         .catch(error=>{})
+    }
+
     return (
         <div>
             <div className="navbar bg-neutral text-neutral-content p-5 gap-x-36">
@@ -42,10 +52,13 @@ const Navbar = () => {
                 <div className="w-1/2 flex-col md:flex-row justify-end">
                     <div className="avatar">
                         <div className="w-16 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src={user?.photoURL} />
                         </div>
                     </div>
-                    <Link to="/login" className="btn">Login</Link>
+                    {
+                        user ? <Link onClick={handleLogout} className="btn">Logout</Link> : <Link to="/login" className="btn">Login</Link>
+                    }
+                    
                 </div>
             </div>
         </div>
