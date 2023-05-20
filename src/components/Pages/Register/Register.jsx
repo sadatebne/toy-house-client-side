@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 import Swal from 'sweetalert2'
@@ -14,6 +14,8 @@ const Register = () => {
     const [view, setView] = useState(false)
 
     const [err, setErr] = useState('')
+
+    const navigate=useNavigate()
 
     const handleViewPass = () => {
         setView(!view)
@@ -41,9 +43,10 @@ const Register = () => {
                         icon: 'success',
                         title: 'Successfully Register',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 1500,
                     })
                     form.reset()
+                    navigate('/login')
                 })
                 .catch(error => {
                     console.log(error)

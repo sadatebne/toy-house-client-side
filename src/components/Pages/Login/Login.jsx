@@ -15,7 +15,7 @@ const Login = () => {
         setView(!view)
     }
 
-    const {login}=useContext(AuthContext)
+    const {login, googleLogin}=useContext(AuthContext)
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -44,6 +44,24 @@ const Login = () => {
                 title: 'Oops...',
                 text: "Provide Valid Email And Password"
               })
+        })
+    }
+
+    const handleGoogleLogin=()=>{
+        googleLogin()
+        .then(result=>{
+            console.log(result.user)
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Successfully Login',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(error=>{
+            console.log(error)
+            setErr(error.message)
         })
     }
 
@@ -83,11 +101,11 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
-
-                                <div className='my-5 text-center'>
+                            </form>
+                            <div className='my-5 text-center'>
                                     <p className='text-2xl font-semibold mb-3'>Sign in With </p>
                                     <span>
-                                        <button className="btn btn-circle btn-outline">
+                                        <button onClick={handleGoogleLogin} className="btn btn-circle btn-outline">
                                             <FaGoogle color='blue' fontSize="2em" />
                                         </button>
                                     </span>
@@ -97,8 +115,6 @@ const Login = () => {
                                         </button>
                                     </span>
                                 </div>
-
-                            </form>
                             <p>Have an account?<span className='text-[#FF3811]'><Link to='/register'> Sign Up</Link></span> </p>
                         </div>
                     </div>
