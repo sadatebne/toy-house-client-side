@@ -67,7 +67,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="w-1/2 flex-col md:flex-row justify-end">
-                    <div className="avatar">
+                    <div className="avatar tooltip tooltip-bottom tooltip-primary" data-tip={user?.displayName}>
                         <div className="w-16 rounded-full">
                             {
                                 user?.email ? <img src={user?.photoURL} /> : ""

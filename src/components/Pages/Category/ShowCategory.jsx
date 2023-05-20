@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
+import Swal from 'sweetalert2'
 
 const ShowCategory = ({category}) => {
     const {_id, name, photo, price, rating,} =category
+    const {user}=useContext(AuthContext)
+    
+    const handleView=()=>{
+     if(!user){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "You have to log in first to view details"
+          })
+     }
+    }
     return (
         <div className='my-10'>
             <div className="card w-96 h-full bg-base-100 shadow-xl mx-auto">
@@ -15,7 +28,7 @@ const ShowCategory = ({category}) => {
                     <div className="card-actions items-center">                        
                         <p>{rating}</p>
                         <Link to={`/viewToyDetails/${_id}`}>
-                        <button className="btn btn-primary">View Details ❯</button>
+                        <button onClick={handleView} className="btn btn-primary">View Details ❯</button>
                         </Link>
                     </div>
                 </div>

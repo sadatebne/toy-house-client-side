@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Swal from 'sweetalert2'
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const AddToys = () => {
+    const {user}=useContext(AuthContext)
     
     const handleAddToy=(event)=>{
         event.preventDefault()
@@ -16,9 +19,32 @@ const AddToys = () => {
         const details=form.details.value 
         const photo=form.photo.value
         
-        const data={name,sellerName,email,category,price,rating,quantity,details,photo}
+        const toyInfo={name,sellerName,email,category,price,rating,quantity,details,photo}
 
-        console.log(data)
+        //console.log(data)
+
+        fetch('http://localhost:3000/userToys',{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(toyInfo)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Successfully Register',
+                    showConfirmButton: false,
+                    timer: 1500,
+                })
+                form.reset()
+            }
+        })
      
     }
 
@@ -31,7 +57,7 @@ const AddToys = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Toy Name</span>
                         </label>
                         <input type="text" name="name" placeholder="name" className="input input-bordered" />
                     </div>
@@ -39,13 +65,13 @@ const AddToys = () => {
                         <label className="label">
                             <span className="label-text">Seller Name</span>
                         </label>
-                        <input type="text" name="sellerName" placeholder="password" className="input input-bordered" />
+                        <input type="text" name="sellerName" placeholder="password" defaultValue={user?.displayName} className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Seller Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                        <input type="email" name="email" placeholder="email" defaultValue={user?.email} className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
