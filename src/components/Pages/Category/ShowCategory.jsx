@@ -11,10 +11,10 @@ const ShowCategory = ({category}) => {
                 </figure>
                 <div className="card-body text-left">
                     <h2 className="card-title">{name}</h2>
-                    <div className="card-actions items-center">
-                        <p>{price}</p>
+                    <p>Price:{price}</p>
+                    <div className="card-actions items-center">                        
                         <p>{rating}</p>
-                        <Link to={`/checkout/${_id}`}>
+                        <Link to={`/viewToyDetails/${_id}`}>
                         <button className="btn btn-primary">❯</button>
                         </Link>
                     </div>
