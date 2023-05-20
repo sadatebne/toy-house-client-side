@@ -8,7 +8,6 @@ import Swal from 'sweetalert2'
 const Login = () => {
 
     const [err, setErr] = useState('')
-    const [success, setSuccess] = useState('')
 
     const [view, setView] = useState(false)
 
@@ -77,7 +76,7 @@ const Login = () => {
                                         </label>
                                     </div>
 
-                                    <p className='text-red-700 my-3'>{err}</p>
+                                    <p className='text-red-600 my-3'>{err}</p>
 
                                 </div>
                                 <div className="form-control mt-6">

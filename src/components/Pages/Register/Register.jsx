@@ -2,31 +2,52 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
+import Swal from 'sweetalert2'
+
 const Register = () => {
 
     const [view, setView] = useState(false)
 
+    const [err, setErr] = useState('')
+
     const handleViewPass = () => {
         setView(!view)
     }
-     
-    const {signUp}=useContext(AuthContext)
-     
-    const handleRegister=(event)=>{
-      event.preventDefault()
 
-      const form=event.target
-      const email=form.email.value
-      const password =form.password.value
-       
-      signUp(email,password)
-      .then(result=>{
-        console.log(result.user)
-        alert('successful')
-      })
-      .catch(error=>{
-        console.log(error)
-      })
+    const { signUp } = useContext(AuthContext)
+
+    const handleRegister = (event) => {
+        event.preventDefault()
+
+        const form = event.target
+        const email = form.email.value
+        const password = form.password.value
+        const confirm = form.confirm.value
+
+        if (password == confirm) {
+
+            signUp(email, password)
+                .then(result => {
+                    console.log(result.user)
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Successfully Register',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                })
+                .catch(error => {
+                    console.log(error)
+                    setErr(error.message)
+                })
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "Password and Confirm Password Doesn't Match"
+            })
+        }
 
     }
 
@@ -54,7 +75,7 @@ const Register = () => {
                                     </label>
                                     <input type="email" placeholder="email" name="email" className="input input-bordered" required />
                                 </div>
-                                
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Password</span>
@@ -67,23 +88,25 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text font-bold">Confirm Password</span>
                                     </label>
-                                    <input type={view ? "text" :"password"} placeholder="password" name="confirm" className="input input-bordered" required />
+                                    <input type={view ? "text" : "password"} placeholder="password" name="confirm" className="input input-bordered" required />
 
                                 </div>
 
                                 <div className="form-control">
-                                        <label className="flex flex-row-reverse justify-end cursor-pointer mt-4">
-                                            <span className="label-text ms-5 font-bold">Show Password</span>
-                                            <input onClick={handleViewPass} type="checkbox" className="checkbox checkbox-primary" />
-                                        </label>
-                                    </div>
+                                    <label className="flex flex-row-reverse justify-end cursor-pointer mt-4">
+                                        <span className="label-text ms-5 font-bold">Show Password</span>
+                                        <input onClick={handleViewPass} type="checkbox" className="checkbox checkbox-primary" />
+                                    </label>
+                                </div>
 
-                                    <div className="form-control">
+                                <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-bold">Photo URL</span>
                                     </label>
                                     <input type="text" placeholder="photo URL" name="photo" className="input input-bordered" />
                                 </div>
+
+                                <p className='text-red-600 my-3'>{err}</p>
 
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Register</button>
