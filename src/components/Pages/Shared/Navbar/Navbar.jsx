@@ -27,12 +27,12 @@ const Navbar = () => {
                                 user?.email ? <>
                                     <li><Link to="/">Home</Link></li>
                                     <li><a>All Toys</a></li>
-                                    <li><a>My Toys</a></li>
+                                    <li><Link to="/myToys">My Toys</Link></li>
                                     <li><Link to="/addToys">Add A Toys</Link></li>
                                     <li><a>Blogs</a></li>
                                 </> : <>
                                     <li><Link to="/">Home</Link></li>
-                                    <li><a>All Toys</a></li>
+                                    <li><Link to="/addToys">Add A Toys</Link></li>
                                     <li><a>Blogs</a></li>
                                 </>
                             }
@@ -53,13 +53,13 @@ const Navbar = () => {
                         {
                             user?.email ? <>
                                 <li><Link to="/">Home</Link></li>
-                                <li><a>All Toys</a></li>
-                                <li><a>My Toys</a></li>
+                                <li><Link to="/allToys">All Toys</Link></li>
+                                <li><Link to="/myToys">My Toys</Link></li>
                                 <li><Link to="/addToys">Add A Toys</Link></li>
                                 <li><a>Blogs</a></li>
                             </> : <>
                                 <li><Link to="/">Home</Link></li>
-                                <li><a>All Toys</a></li>
+                                <li><Link to="/addToys">Add A Toys</Link></li>
                                 <li><a>Blogs</a></li>
                             </>
                         }
