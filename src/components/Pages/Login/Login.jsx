@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../../providers/AuthProvider';
 
@@ -10,6 +10,12 @@ const Login = () => {
     const [err, setErr] = useState('')
 
     const [view, setView] = useState(false)
+
+    const location=useLocation()
+
+    const navigate=useNavigate()
+
+    const from= location.state?.from?.pathname || "/";
 
     const handleViewPass = () => {
         setView(!view)
@@ -35,6 +41,7 @@ const Login = () => {
                 timer: 1500
               })
               form.reset()
+              navigate(from)
         })
         .catch(error=>{
             console.log(error)
@@ -58,6 +65,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              navigate(from)
         })
         .catch(error=>{
             console.log(error)

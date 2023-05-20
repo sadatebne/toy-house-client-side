@@ -7,6 +7,7 @@ import Register from "../components/Pages/Register/Register";
 import Home from "../components/Pages/Home/Home/Home";
 import AddToys from "../components/Pages/AddToys/AddToys";
 import ViewToyDetails from "../components/Pages/ViewToyDetails/ViewToyDetails";
+import PrivateRoute from "./PrivateRoute";
 
   const router = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ import ViewToyDetails from "../components/Pages/ViewToyDetails/ViewToyDetails";
         },
         {
           path: "/viewToyDetails/:id",
-          element:<ViewToyDetails></ViewToyDetails> ,
+          element:<PrivateRoute><ViewToyDetails></ViewToyDetails></PrivateRoute> ,
           loader:({params})=>fetch(`http://localhost:3000/allToys/${params.id}`)
         },
         
