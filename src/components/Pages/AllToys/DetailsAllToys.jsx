@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const DetailsAllToys = () => {
     const toys=useLoaderData()
     const {name, category,quantity, sellerName, photo, details, price, rating, email}=toys
+    console.log(toys)
     return (
         <div className='my-10'>
             <Link to="/allToys">Back To Main</Link>

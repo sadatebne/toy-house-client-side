@@ -14,7 +14,7 @@ const Category = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3000/allToys`)
+        fetch(`https://toy-house-server-blond.vercel.app/allToys`)
             .then(res => res.json())
             .then(datas => {
                 const result = datas.filter(data => data.category == activeTab)
@@ -22,8 +22,8 @@ const Category = () => {
             })
     }, [activeTab])
 
-    console.log(activeTab)
-    console.log(categories)
+    //console.log(activeTab)
+    //console.log(categories)
 
     useEffect(() => {
         AOS.init();

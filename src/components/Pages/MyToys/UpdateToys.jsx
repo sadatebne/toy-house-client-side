@@ -19,7 +19,7 @@ const UpdateToys = () => {
 
         const update = { price, quantity, details }
 
-        fetch(`http://localhost:3000/updateToys/${_id}`, {
+        fetch(`https://toy-house-server-blond.vercel.app/updateToys/${_id}`, {
 
             method: "PATCH",
             headers: {

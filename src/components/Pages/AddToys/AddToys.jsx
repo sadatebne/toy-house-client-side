@@ -26,7 +26,7 @@ const AddToys = () => {
 
         //console.log(data)
 
-        fetch('http://localhost:3000/userToys',{
+        fetch('https://toy-house-server-blond.vercel.app/userToys',{
             method:"POST",
             headers:{
                 "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const AddToys = () => {
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Successfully Register',
+                    title: 'Successfully Added',
                     showConfirmButton: false,
                     timer: 1500,
                 })

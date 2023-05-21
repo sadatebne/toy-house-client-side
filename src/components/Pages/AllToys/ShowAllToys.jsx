@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ShowAllToys = ({ allToy }) => {
     const {_id, name, sellerName, email, category, price, rating, quantity, details, photo } = allToy
-
     return (
         
         <tr>

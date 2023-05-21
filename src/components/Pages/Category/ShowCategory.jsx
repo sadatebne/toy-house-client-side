@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2'
@@ -18,11 +18,12 @@ const ShowCategory = ({ category }) => {
                 text: "You have to log in first to view details"
             })
         }
-
-        useEffect(() => {
-            AOS.init();
-        }, [])
     }
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     return (
         <div className='my-10'>
             <div className="card w-96 h-full bg-base-100 shadow-xl mx-auto" data-aos="flip-left"
