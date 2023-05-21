@@ -83,7 +83,7 @@ const Login = () => {
                     <div className="mr-7 w-full md:w-1/2">
                         <img src="https://img.freepik.com/free-vector/cartoon-character-clown-dances-with-musical-melody-symbols_1308-60403.jpg?t=st=1684478570~exp=1684479170~hmac=9314f74092b3c6b4c25a713eba66b8064c152f614ba50368bc3bd30da214aa81" style={{ height: "900px" }} />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" >
                         <div className="card-body">
                             <h1 className='text-4xl text-center my-5 font-bold'>LOGIN</h1>
                             <form onSubmit={handleLogin}>

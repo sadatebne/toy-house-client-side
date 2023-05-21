@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Marquee from "react-fast-marquee";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Exclusive = () => {
+
+    useEffect(() => {
+        AOS.init();
+      }, [])
+
     return (
-        <div className='my-16'>
+        <div className='my-16' data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0">
             <h2 className='my-10 text-5xl font-bold text-center'>Exclusive Toys</h2>
             <Marquee style={{ height: "200px", width: "100%" }}>
 

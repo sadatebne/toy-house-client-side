@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const Banner = () => {
+    
+    useEffect(() => {
+        AOS.init();
+      }, [])
+    
     return (
-        <div>
+        <div data-aos="fade-left">
             <div className="carousel w-full ">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://images.unsplash.com/photo-1580164631075-b3f1304f4051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" className="w-full" />
 
                     <div className="absolute rounded-xl h-full flex items-center justify-end transform -translate-y-1/2 left-0 right-5 pl-7 top-1/2 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
 
-                        <div className='text-white space-y-3 md:space-y-7 md:w-1/2'>
+                        <div data-aos="fade-left" className='text-white space-y-3 md:space-y-7 md:w-1/2'>
                             <h1 className='text-xl md:text-7xl font-bold'>Toy House: Where Adventure and Creativity Come to Life!</h1>
 
                             <p>Explore, Select, and Delight in Your Perfect Playmate. Happy Shopping..</p>

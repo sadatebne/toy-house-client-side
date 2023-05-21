@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ShowCategory from './ShowCategory';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Category = () => {
     const [categories, setCategories] = useState([])
@@ -23,9 +25,15 @@ const Category = () => {
     console.log(activeTab)
     console.log(categories)
 
+    useEffect(() => {
+        AOS.init();
+      }, [])
+
 
     return (
-        <div>
+        <div data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine">
             <Tabs>
                 <TabList>
                     <Tab>Actions Toy</Tab>

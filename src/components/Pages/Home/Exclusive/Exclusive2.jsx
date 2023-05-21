@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Exclusive2 = () => {
+
+    useEffect(() => {
+        AOS.init();
+      }, [])
+
     return (
-        <div className='my-16'>
+        <div className='my-16' data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0">
             <Marquee style={{ height: "200px", width: "100%" }} direction="right">
 
                 <img className='mx-3' src="https://images.unsplash.com/photo-1560343776-97e7d202ff0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80" alt="" style={{ height: "200px", width: "200px" }} />
