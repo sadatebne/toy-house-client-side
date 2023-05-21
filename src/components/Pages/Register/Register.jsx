@@ -6,10 +6,13 @@ import Swal from 'sweetalert2'
 
 import { getAuth, updateProfile } from "firebase/auth";
 import app from '../../../firebase/firebase.config';
+import useTitle from '../../../Hooks/useTitle';
 const auth = getAuth(app);
 
 
 const Register = () => {
+
+    useTitle('Register')
 
     const [view, setView] = useState(false)
 

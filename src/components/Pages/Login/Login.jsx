@@ -4,8 +4,11 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../../providers/AuthProvider';
 
 import Swal from 'sweetalert2'
+import useTitle from '../../../Hooks/useTitle';
 
 const Login = () => {
+
+    useTitle('Login')
 
     const [err, setErr] = useState('')
 
