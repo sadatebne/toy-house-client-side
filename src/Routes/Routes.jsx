@@ -58,7 +58,7 @@ import ErrorPage from "../components/Pages/ErrorPage/ErrorPage";
         {
           path: "/toyDetails/:id",
           element:<DetailsAllToys></DetailsAllToys>,
-          loader:({params})=>fetch(`https://toy-house-server-blond.vercel.app/userToys/${params.id}`)
+          loader:({params})=>fetch(`https://toy-house-server-blond.vercel.app/user/${params.id}`)
         },
         {
           path: "/viewToyDetails/:id",
