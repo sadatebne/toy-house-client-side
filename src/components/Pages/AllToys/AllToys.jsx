@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ShowAllToys from './ShowAllToys';
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 const AllToys = () => {
 
@@ -31,7 +32,23 @@ const AllToys = () => {
             })
 
     }
-    
+
+    const sort = () => {
+        const sortedToys = [...allToys]; // Create a copy of the array to avoid mutating the original data
+        sortedToys.sort((a, b) => a.price - b.price); // Sort the toys by price in ascending order
+        setAllToys(sortedToys); // Update the state with the sorted toys
+        setAceSort(true)
+    }
+
+    const sort2 = () => {
+        const sortedToys = [...allToys]; // Create a copy of the array to avoid mutating the original data
+        sortedToys.sort((a, b) => b.price - a.price); // Sort the toys by price in ascending order
+        setAllToys(sortedToys); // Update the state with the sorted toys
+        setAceSort(false)
+    }
+
+    const [aceSort, setAceSort] = useState(true)
+
 
     return (
         <div className='my-10'>
@@ -47,6 +64,24 @@ const AllToys = () => {
                         </div>
                     </form>
                 </div>
+
+                <div className='flex items-center gap-5'>
+                    {/* button */} 
+                    <h3 className='text-2xl font-semibold'>Sort By Price: </h3>
+                    {
+                        aceSort ? <button onClick={sort2} className="btn btn-circle my-5">
+                            <FaArrowUp />
+                        </button> :
+
+                            <button onClick={sort} className="btn btn-circle my-5">
+                                <FaArrowDown />
+                            </button>
+
+                    }
+                </div>
+                
+
+
 
 
                 <table className="table w-full">

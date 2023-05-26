@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../../providers/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
+import { useNavigate } from 'react-router-dom';
 
 const AddToys = () => {
     useTitle('AddToys')
+
+    const navigate=useNavigate()
     
     const {user}=useContext(AuthContext)
     
@@ -46,6 +49,7 @@ const AddToys = () => {
                     timer: 1500,
                 })
                 form.reset()
+                navigate('/myToys')
             }
         })
      

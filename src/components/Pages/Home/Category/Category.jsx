@@ -34,6 +34,7 @@ const Category = () => {
         <div data-aos="fade-right"
         data-aos-offset="300"
         data-aos-easing="ease-in-sine">
+            <h1 className='text-center text-5xl font-bold'>Shop by category</h1>
             <Tabs>
                 <TabList>
                     <Tab>Actions Toy</Tab>

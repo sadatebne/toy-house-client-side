@@ -64,5 +64,30 @@
         "quantity": 7,
         "details": "Authentic Stormtrooper replica with good materials.",
         "photo": "https://unsplash.com/photos/ghziyUe5eI8"
+    },
+    
+
+    {
+        "name": "Captain America",
+        "sellerName": "Superhero Collectibles",
+        "email": "info@superherocollectibles.com",
+        "category": "Marvel",
+        "price": 69.99,
+        "rating": 4.6,
+        "quantity": 5,
+        "details": "Detailed Captain America action figure with movable parts.",
+        "photo": "https://m.media-amazon.com/images/I/71YTV3qw6-L._SL1500_.jpg"
+    },
+    {
+        "name": "Spider-Man",
+        "sellerName": "Webbed Wonders",
+        "email": "info@webbedwonders.com",
+        "category": "Marvel",
+        "price": 59.99,
+        "rating": 4.3,
+        "quantity": 3,
+        "details": "Posable Spider-Man action figure with web-slinging accessories.",
+        "photo": "https://images.unsplash.com/photo-1557985594-29f3ad9f5134?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
     }
+    
 ]
